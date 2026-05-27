@@ -1,5 +1,5 @@
 /* =========================================================================
-   1. ĐỊNH DẠNG NỀN ĐỘNG GALAXY & KHÔNG GIAN MA TRẬN
+   1. ĐỊNH DẠNG CHUNG VÀ NỀN ĐỘNG GALAXY LỘNG LẪY
    ========================================================================= */
 body {
     margin: 0;
@@ -14,7 +14,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Lớp nền dải ngân hà chuyển động đổi màu ngầm phía sau */
+/* Lớp nền dải ngân hà chuyển màu ma mị ngầm phía sau */
 .galaxy-bg {
     position: fixed;
     top: 0;
@@ -33,7 +33,7 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Các hạt bụi sương mù trôi lơ lửng tạo chiều sâu không gian */
+/* Sương mù hạt bụi chuyển động tạo chiều sâu không gian */
 .mist-layer {
     position: absolute;
     width: 200%;
@@ -50,7 +50,7 @@ body {
 }
 
 /* =========================================================================
-   2. KHUNG CHỨA GAME TRUNG TÂM (HỘP THOẠI PHA LÊ PHÁT SÁNG)
+   2. KHUNG HỘP THOẠI PHA LÊ PHÁT SÁNG (GAME CONTAINER & SCREENS)
    ========================================================================= */
 #game-container {
     position: relative;
@@ -60,13 +60,13 @@ body {
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(129, 140, 248, 0.2);
     border-radius: 24px;
-    padding: 40px 35px;
+    padding: 45px 35px;
     max-width: 620px;
     width: 90%;
     min-height: 380px;
     box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 
                 0 0 40px rgba(99, 102, 241, 0.1);
-    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease;
 }
 
 .screen {
@@ -82,7 +82,7 @@ body {
     display: none !important;
 }
 
-/* Tiêu đề đổi màu Gradient Neon */
+/* Chữ tiêu đề đổi màu và phát sáng */
 .glow-text {
     font-size: 2.2rem;
     font-weight: 800;
@@ -108,14 +108,14 @@ body {
     font-style: italic;
     font-size: 0.95rem;
     line-height: 1.6;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     text-align: center;
 }
 
-/* Biểu mẫu tương tác & Ô nhập ký danh */
+/* Khu vực nhập liệu & Nút bấm */
 .interactive-group {
     display: flex;
-    gap: 12px;
+    gap: 15px;
     flex-direction: column;
 }
 
@@ -160,20 +160,20 @@ body {
 .warning-text {
     color: #f87171;
     font-size: 0.85rem;
+    margin-top: 15px;
     text-align: center;
     font-weight: 500;
-    transition: opacity 0.3s ease;
 }
 
 /* =========================================================================
-   3. GIAO DIỆN HIỂN THỊ CHỈ SỐ NHÂN VẬT & THỰC ĐƠN CHỌN CỔNG
+   3. CẤU TRÚC ĐỘNG: CỐT TRUYỆN NHÂN VẬT & DANH SÁCH CỔNG
    ========================================================================= */
-/* Hộp bọc khối nhân vật ngẫu nhiên được kết xuất từ main.js */
+/* Khung hiển thị thông tin bốc ngẫu nhiên nhân vật từ main.js */
 .character-box {
     background: rgba(7, 9, 15, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 14px;
-    padding: 22px;
+    padding: 20px;
     text-align: left;
     margin-top: 15px;
 }
@@ -184,18 +184,17 @@ body {
     font-size: 1.3rem;
     border-bottom: 1px dashed rgba(255,255,255,0.1);
     padding-bottom: 8px;
-    margin-bottom: 12px;
 }
 
 .stat-row {
     display: flex;
     justify-content: space-between;
-    margin: 8px 0;
+    margin: 6px 0;
     font-size: 0.95rem;
     color: #cbd5e1;
 }
 
-/* Khu vực danh sách 5 cổng */
+/* Thực đơn chọn Cổng */
 .gate-menu {
     display: flex;
     flex-direction: column;
@@ -214,7 +213,6 @@ body {
     cursor: pointer;
     text-align: left;
     transition: all 0.25s ease;
-    width: 100%;
 }
 
 .gate-card:hover {
@@ -228,7 +226,7 @@ body {
 .gate-name { font-weight: 600; font-size: 1rem; }
 
 /* =========================================================================
-   4. BẢNG CÂU HỎI TRẮC NGHIỆM CHÍNH KHÍ CHƠI GAME
+   4. GIAO DIỆN BẢNG CÂU HỎI CHƠI GAME CHÍNH
    ========================================================================= */
 .quiz-header {
     display: flex;
@@ -256,7 +254,7 @@ body {
     font-weight: 600;
 }
 
-/* Thanh Tiến Trình Câu Hỏi */
+/* Thanh Tiến Trình Trơn Mượt */
 .progress-wrapper {
     margin-bottom: 25px;
 }
@@ -283,7 +281,7 @@ body {
     transition: width 0.3s ease;
 }
 
-/* Hộp dựng văn bản câu hỏi & đáp án */
+/* Khung Câu Hỏi và Các Đáp Án Lựa Chọn */
 .quiz-box {
     text-align: left;
 }
@@ -293,7 +291,6 @@ body {
     font-style: italic;
     font-size: 0.95rem;
     margin-bottom: 10px;
-    line-height: 1.4;
 }
 
 .question-text {
@@ -309,7 +306,6 @@ body {
     gap: 10px;
 }
 
-/* Các nút bấm đáp án được render tự động từ hàm hiển thị của main.js */
 .choice-btn {
     background: rgba(27, 32, 51, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -321,8 +317,6 @@ body {
     cursor: pointer;
     transition: all 0.2s ease;
     line-height: 1.4;
-    width: 100%;
-    display: block;
 }
 
 .choice-btn:hover {
@@ -332,7 +326,7 @@ body {
 }
 
 /* =========================================================================
-   5. KHỐI CHỨNG THƯ VINH QUANG ĐẦU RA (CERTIFICATE)
+   5. CHỨNG NHẬN KẾT QUẢ ĐẦU RA (CERTIFICATE)
    ========================================================================= */
 #certificate-card {
     background: #161925;
