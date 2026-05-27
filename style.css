@@ -1,5 +1,5 @@
 /* =========================================================================
-   1. ĐỊNH DẠNG NỀN ĐỘNG GALAXY & KHÔNG GIAN MA TRẬN
+   1. ĐỊNH DẠNG KHÔNG GIAN NỀN GALAXY
    ========================================================================= */
 body {
     margin: 0;
@@ -14,7 +14,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Lớp nền dải ngân hà chuyển động đổi màu ngầm phía sau */
 .galaxy-bg {
     position: fixed;
     top: 0;
@@ -33,7 +32,6 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Các hạt bụi sương mù trôi lơ lửng tạo chiều sâu không gian */
 .mist-layer {
     position: absolute;
     width: 200%;
@@ -50,22 +48,21 @@ body {
 }
 
 /* =========================================================================
-   2. KHUNG CHỨA GAME TRUNG TÂM (HỘP THOẠI PHA LÊ PHÁT SÁNG)
+   2. KHUNG CHỨA GAME TRUNG TÂM (GAME CONTAINER)
    ========================================================================= */
 #game-container {
     position: relative;
     z-index: 10;
-    background: rgba(14, 17, 27, 0.75);
+    background: rgba(14, 17, 27, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(129, 140, 248, 0.2);
+    border: 2px solid #333; /* Trùng khớp hoàn toàn với dòng khởi tạo lại của btn-restart trong main.js */
     border-radius: 24px;
     padding: 40px 35px;
     max-width: 620px;
     width: 90%;
     min-height: 380px;
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 
-                0 0 40px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8);
     transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -82,7 +79,6 @@ body {
     display: none !important;
 }
 
-/* Tiêu đề đổi màu Gradient Neon */
 .glow-text {
     font-size: 2.2rem;
     font-weight: 800;
@@ -112,7 +108,7 @@ body {
     text-align: center;
 }
 
-/* Biểu mẫu tương tác & Ô nhập ký danh */
+/* Biểu mẫu & Nút bấm */
 .interactive-group {
     display: flex;
     gap: 12px;
@@ -154,7 +150,6 @@ body {
 .neon-pulse-btn:hover {
     background-position: right center;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
 }
 
 .warning-text {
@@ -166,16 +161,14 @@ body {
 }
 
 /* =========================================================================
-   3. GIAO DIỆN HIỂN THỊ CHỈ SỐ NHÂN VẬT & THỰC ĐƠN CHỌN CỔNG
+   3. KHỐI HIỂN THỊ CÁC THÀNH PHẦN LOGIC ĐỘNG (NHÂN VẬT & CỔNG)
    ========================================================================= */
-/* Hộp bọc khối nhân vật ngẫu nhiên được kết xuất từ main.js */
 .character-box {
     background: rgba(7, 9, 15, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 14px;
     padding: 22px;
     text-align: left;
-    margin-top: 15px;
 }
 
 .character-box h3 {
@@ -195,7 +188,7 @@ body {
     color: #cbd5e1;
 }
 
-/* Khu vực danh sách 5 cổng */
+/* Danh sách cổng */
 .gate-menu {
     display: flex;
     flex-direction: column;
@@ -221,14 +214,13 @@ body {
     background: rgba(31, 38, 61, 0.9);
     border-color: #6366f1;
     transform: translateX(6px);
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.15);
 }
 
 .gate-icon { font-size: 1.4rem; }
 .gate-name { font-weight: 600; font-size: 1rem; }
 
 /* =========================================================================
-   4. BẢNG CÂU HỎI TRẮC NGHIỆM CHÍNH KHÍ CHƠI GAME
+   4. GIAO DIỆN BẢNG ĐẤU TRẮC NGHIỆM
    ========================================================================= */
 .quiz-header {
     display: flex;
@@ -256,7 +248,7 @@ body {
     font-weight: 600;
 }
 
-/* Thanh Tiến Trình Câu Hỏi */
+/* Tiến trình */
 .progress-wrapper {
     margin-bottom: 25px;
 }
@@ -265,7 +257,7 @@ body {
     font-size: 0.85rem;
     color: #94a3b8;
     margin-bottom: 6px;
-    font-weight: 500;
+    text-align: left;
 }
 
 .progress-bar-bg {
@@ -283,7 +275,7 @@ body {
     transition: width 0.3s ease;
 }
 
-/* Hộp dựng văn bản câu hỏi & đáp án */
+/* Vùng hiển thị câu hỏi */
 .quiz-box {
     text-align: left;
 }
@@ -309,7 +301,7 @@ body {
     gap: 10px;
 }
 
-/* Các nút bấm đáp án được render tự động từ hàm hiển thị của main.js */
+/* Nút lựa chọn đáp án được sinh tự động từ main.js */
 .choice-btn {
     background: rgba(27, 32, 51, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -332,7 +324,7 @@ body {
 }
 
 /* =========================================================================
-   5. KHỐI CHỨNG THƯ VINH QUANG ĐẦU RA (CERTIFICATE)
+   5. KHỐI CHỨNG THƯ KẾT QUẢ ĐẦU RA
    ========================================================================= */
 #certificate-card {
     background: #161925;
