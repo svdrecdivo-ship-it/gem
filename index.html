@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mê Cung Định Mệnh</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="galaxy-bg">
+        <div class="mist-layer"></div>
+    </div>
+
+    <div id="game-container">
+        
+        <div id="screen-start" class="screen">
+            <h1 class="glow-text">Mê Cung Định Mệnh</h1>
+            <p class="sub-text">Mê cung ma trận mở ra trước mắt bạn. Hãy viết lại danh tính của mình trên phiến đá cổ để định hình số phận...</p>
+            <div class="interactive-group">
+                <input type="text" id="player-name-input" class="crystal-input" placeholder="Ký danh tính của bạn..." autocomplete="off">
+                <div id="error-message" class="warning-text" style="opacity: 0;"></div>
+                <button id="btn-start" class="neon-pulse-btn">Định Hình Bản Ngã</button>
+            </div>
+        </div>
+
+        <div id="screen-character" class="screen hide">
+            <h2 class="glow-text" style="font-size: 1.8rem;">Bản Ngã Thức Tỉnh</h2>
+            <div id="character-result"></div>
+            <button id="btn-go-to-gates" class="neon-pulse-btn" style="margin-top: 25px; width: 100%;">Bước Vào Sảnh Đường</button>
+        </div>
+
+        <div id="screen-gate-select" class="screen hide">
+            <h2 class="glow-text" style="font-size: 1.8rem; margin-bottom: 5px;">Lựa Chọn Lối Đi</h2>
+            <p class="sub-text" style="margin-bottom: 25px;">Năm luồng năng lượng cổ xưa đang vẫy gọi. Hãy chọn một cổng để thử thách linh hồn...</p>
+            
+            <div class="gate-menu">
+                <button class="gate-card btn-gate" data-gate="thap_khao_co">
+                    <span class="gate-icon">🏛️</span>
+                    <span class="gate-name">Cổng 1: Tháp Khảo Cổ</span>
+                </button>
+                <button class="gate-card btn-gate" data-gate="den_cong_ly">
+                    <span class="gate-icon">⚖️</span>
+                    <span class="gate-name">Cổng 2: Đền Công Lý</span>
+                </button>
+                <button class="gate-card btn-gate" data-gate="vuong_quoc_ngon_ngu">
+                    <span class="gate-icon">📖</span>
+                    <span class="gate-name">Cổng 3: Vương Quốc Ngôn Ngữ</span>
+                </button>
+                <button class="gate-card btn-gate" data-gate="thanh_dia_doi_song">
+                    <span class="gate-icon">🌱</span>
+                    <span class="gate-name">Cổng 4: Thánh Địa Đời Sống</span>
+                </button>
+                <button class="gate-card btn-gate" data-gate="vien_co_khai">
+                    <span class="gate-icon">🧪</span>
+                    <span class="gate-name">Cổng 5: Ma Trận Khoa Học</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="screen-quiz" class="screen hide">
+            <div class="quiz-header">
+                <span id="display-player-info" class="player-tag">Người chơi: --</span>
+                <span id="quiz-timer" class="timer-tag">⏱️ Tự hủy: 30s</span>
+            </div>
+            
+            <div class="progress-wrapper">
+                <div class="progress-text-container">
+                    <span id="quiz-progress-text">Phòng thử thách: 1 / 20</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="quiz-progress-bar" class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <div class="quiz-box">
+                <div id="quiz-room-text" class="room-desc"></div>
+                <div id="quiz-question" class="question-text"></div>
+                <div id="quiz-choices" class="choices-list"></div>
+            </div>
+        </div>
+
+        <div id="screen-result" class="screen hide">
+            <div id="certificate-card">
+                <h2 style="color: #fbbf24; letter-spacing: 2px; margin-bottom: 5px;">CHỨNG THƯ VINH QUANG</h2>
+                <p style="color: #94a3b8; font-style: italic; margin-top: 0; font-size: 0.9rem;">Mê Cung Định Mệnh Xác Nhận</p>
+                <div style="border-top: 1px dashed rgba(255,255,255,0.2); margin: 20px 0;"></div>
+                <div id="cert-content" class="cert-body"></div>
+                <div style="border-top: 1px dashed rgba(255,255,255,0.2); margin: 20px 0;"></div>
+                <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 0;">Thời gian lập thư: <span id="cert-time"></span></p>
+            </div>
+            <div class="result-actions">
+                <button id="btn-download-cert" class="action-btn download">Tải Chứng Nhận (.PNG)</button>
+                <button id="btn-restart" class="action-btn restart">Thử Thách Lại</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
